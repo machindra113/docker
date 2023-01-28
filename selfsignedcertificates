@@ -1,0 +1,21 @@
+
+create a pair of key
+openssl genrsa -out filename.key 2048
+
+extract public key 
+openssl rsa -in  filename.key -pubout -out public.key
+dir
+
+create cert signining request
+openssl req -new -keyfilename.key -out file.csr
+
+enter details
+
+for verification
+verify 
+openssl req -text -in file.csr -noout -verify
+
+creatting a self signed certifiacate
+openssl x509 -in file.csr -out file.cert -req -signkey filename.key -days 365  
+
+
